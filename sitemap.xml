@@ -3,15 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://BK1603.github.io/categories/</loc>
+    <loc>https://bk1603.github.io/</loc>
   </url>
   
   <url>
-    <loc>http://BK1603.github.io/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>http://BK1603.github.io/</loc>
+    <loc>https://bk1603.github.io/writeup-personal-cryptopals-gsoc-pwnable.kr/</loc>
   </url>
   
 </urlset>
