@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 28 Apr 2020 17:31:41 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 20:59:43 +0530</lastBuildDate>
     
 	<atom:link href="https://bk1603.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>First Blog</title>
+      <link>https://bk1603.github.io/blog/first-blog/</link>
+      <pubDate>Tue, 28 Apr 2020 20:59:43 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/blog/first-blog/</guid>
+      <description>What is this blog for? As per the suggestion from one of my seniors, (@vnzongzna) I&amp;rsquo;ll blog about the open source projects that I contribute to over here, and any other cool stuff that I come accross.</description>
+    </item>
     
     <item>
       <title>fd: The first problem at pwnable.kr</title>
