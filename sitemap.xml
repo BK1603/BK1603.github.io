@@ -13,17 +13,28 @@
   </url>
   
   <url>
+    <loc>https://bk1603.github.io/tags/pwnable.kr/</loc>
+    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bk1603.github.io/</loc>
+    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/</loc>
+    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/writeups/</loc>
     <lastmod>2020-04-28T17:31:41+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://bk1603.github.io/about/</loc>
     <lastmod>2020-04-28T16:39:25+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bk1603.github.io/writeup-personal-cryptopals-gsoc-pwnable.kr/</loc>
   </url>
   
 </urlset>

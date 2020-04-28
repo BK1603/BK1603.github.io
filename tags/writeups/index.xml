@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>writeups on Question Everything</title>
+    <link>https://bk1603.github.io/tags/writeups/</link>
+    <description>Recent content in writeups on Question Everything</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 28 Apr 2020 17:31:41 +0530</lastBuildDate>
+    
+	<atom:link href="https://bk1603.github.io/tags/writeups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fd: The first problem at pwnable.kr</title>
+      <link>https://bk1603.github.io/posts/fd/</link>
+      <pubDate>Tue, 28 Apr 2020 17:31:41 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/posts/fd/</guid>
+      <description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
+    </item>
+    
+  </channel>
+</rss>
