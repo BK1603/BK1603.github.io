@@ -151,7 +151,7 @@ total 16
 -r--r----- 1 fd_pwn root   50 Jun 11  2014 flag
 </code></pre>
 
-<p>We see that the flag file is only readable be the owner <code>fd_pwn</code> or by
+<p>We see that the flag file is only readable by the owner <code>fd_pwn</code> or by
 someone belonging to the <code>root</code> group.</p>
 
 <p>Well if that&rsquo;s the case then how does the <code>fd</code> binary <code>cat</code>s the file? The
