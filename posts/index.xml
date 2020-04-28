@@ -45,7 +45,7 @@ write to?</p>
 If you have even a little experience with linux or have manipulated files in a language like C, you&rsquo;d think that the problem somehow involves file descriptors. And you wouldn&rsquo;t be wrong. Clicking on the problem you&rsquo;d find
 the following hint:</p>
 
-<pre><code>Mommy! what is a file dexriptor in Linux?
+<pre><code>Mommy! what is a file descriptor in Linux?
 
 * try to play the wargame your self but if you are ABSOLUTE beginner, follow this tutorial link:
 https://youtu.be/971eZhMHQQw
