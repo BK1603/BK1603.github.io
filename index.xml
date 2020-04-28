@@ -21,5 +21,15 @@
       <description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
     </item>
     
+    <item>
+      <title>About</title>
+      <link>https://bk1603.github.io/about/</link>
+      <pubDate>Tue, 28 Apr 2020 16:39:25 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/about/</guid>
+      <description>Hey there! I am Shreyansh. I am a student currently pursuing bachelors degree of technology in computer science. I&amp;rsquo;d like to describe myself as a curious monkey. Ever since I was a kid, I would always break my toys to see how things worked &amp;ldquo;under the hood&amp;rdquo;. Guess I never really grew up, only the toys changed. :)
+I like doing a lot of things apart from programming and cybersecurity stuff.</description>
+    </item>
+    
   </channel>
 </rss>
