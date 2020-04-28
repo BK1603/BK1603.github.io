@@ -6,20 +6,9 @@
     <description>Recent content on Write ups for pwnable.kr</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2020 14:30:43 +0530</lastBuildDate>
     
 	<atom:link href="http://BK1603.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First Problem: fd</title>
-      <link>http://BK1603.github.io/posts/fd/</link>
-      <pubDate>Tue, 28 Apr 2020 14:30:43 +0530</pubDate>
-      
-      <guid>http://BK1603.github.io/posts/fd/</guid>
-      <description>fd TEST POST Upon clicking on the problem the hint reads: &amp;gt; Mommy! what is a file descriptor in Linux?
-A file descriptor is a unique number given to a file when it is opened using the open() call. It is the handle through which we can read or write files or any other input/output resource.</description>
-    </item>
     
   </channel>
 </rss>
