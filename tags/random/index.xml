@@ -14,11 +14,12 @@
     
     <item>
       <title>First Blog</title>
-      <link>https://bk1603.github.io/blog/first-blog/</link>
+      <link>https://bk1603.github.io/posts/blog/first-blog/</link>
       <pubDate>Tue, 28 Apr 2020 20:59:43 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/blog/first-blog/</guid>
-      <description>What is this blog for? As per the suggestion from one of my seniors, (@vnzongzna) I&amp;rsquo;ll blog about the open source projects and any other cool stuff that I come accross.</description>
+      <guid>https://bk1603.github.io/posts/blog/first-blog/</guid>
+      <description>What is this blog for? I&amp;rsquo;ll use this blog for writing about my adventures in open source. The issues that I fixed and how I fixed them. I might also write about how various open source softwares work &amp;ldquo;under the hood&amp;rdquo;. You know the good stuff ;)
+I&amp;rsquo;ll try and write about any security vulnerabilities that I might find in open source softwares. Although this is a long shot, but well, if I do find something, I might as well write about how I found it.</description>
     </item>
     
   </channel>

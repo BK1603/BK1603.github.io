@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="fd: The first problem at pwnable.kr">
+<meta itemprop="description" content="A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&rsquo;t understand.">
+
+
+<meta itemprop="datePublished" content="2020-04-28T17:31:41&#43;05:30" />
+<meta itemprop="dateModified" content="2020-04-28T17:31:41&#43;05:30" />
+<meta itemprop="wordCount" content="921">
+
+
+
+<meta itemprop="keywords" content="writeups,pwnable.kr," />
+<meta property="og:title" content="fd: The first problem at pwnable.kr" />
+<meta property="og:description" content="A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&rsquo;t understand." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bk1603.github.io/posts/writeups/fd/" />
+<meta property="article:published_time" content="2020-04-28T17:31:41+05:30" />
+<meta property="article:modified_time" content="2020-04-28T17:31:41+05:30" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="fd: The first problem at pwnable.kr"/>
+<meta name="twitter:description" content="A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&rsquo;t understand."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>fd: The first problem at pwnable.kr</title>
+	<link rel="stylesheet" href="https://bk1603.github.io/css/style.min.20e6e5df1f989a2a36ed7cbce604b2672cfea0e8acef9930825ffb5f85914012.css" integrity="sha256-IObl3x+Ymio27Xy85gSyZyz+oOis75kwgl/7X4WRQBI=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://bk1603.github.io">Question Everything</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://bk1603.github.io/posts/blog/">Blog</a>
+				<a href="https://bk1603.github.io/posts/writeups/">Writeups</a>
+				<a href="https://bk1603.github.io/tags/">Tags</a>
+				<a href="https://bk1603.github.io/about/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/bk1603" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/BK1603" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="mailto:chouhan.shreyansh2702@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://bk1603.github.io/posts/blog/">Blog</a></li>
+			<li><a href="https://bk1603.github.io/posts/writeups/">Writeups</a></li>
+			<li><a href="https://bk1603.github.io/tags/">Tags</a></li>
+			<li><a href="https://bk1603.github.io/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Apr 28, 2020</span></div>
+				<h1>fd: The first problem at pwnable.kr</h1>
+			</header>
+			<div class="content">
+				
+
+<h2 id="a-word-before-we-start">A word before we start<a href="#a-word-before-we-start" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Before starting the discussion of the problem, for anyone following these
+blog posts, I&rsquo;d like to mention that everything required by these
+challenges can be read as and when necessary, but having a very basic
+knowledge of the linux command line, file permission bits on linux and
+tools like <code>ssh</code>, <code>scp</code> and <code>nc</code> would be very helpful. Also try reading
+the <code>man</code> pages of any command line tool the use of which you couldn&rsquo;t
+understand.</p>
+
+<p>Also, all the writeups that I do for these problems would always contain a
+section named &ldquo;Hint&rdquo;, it would contain a hint which according to me should
+help in solving the problem. If you want to solve a problem but are stuck
+somewhere, try looking at these hints and see if you get somewhere with
+the problem.</p>
+
+<h2 id="hint">Hint<a href="#hint" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>The program reads from a file descriptor, what file descriptor can you
+modify?</p>
+
+<h2 id="how-i-solved-it">How I solved it<a href="#how-i-solved-it" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>The title of the first problem at <a href="https://pwnable.kr">pwnable.kr</a> is fd.
+If you have even a little experience with linux or have manipulated files in a language like C, you&rsquo;d think that the problem somehow involves file descriptors. And you wouldn&rsquo;t be wrong. Clicking on the problem you&rsquo;d find
+the following hint:</p>
+
+<pre><code>Mommy! what is a file descriptor in Linux?
+
+* try to play the wargame your self but if you are ABSOLUTE beginner, follow this tutorial link:
+https://youtu.be/971eZhMHQQw
+
+ssh fd@pwnable.kr -p2222 (pw:guest)
+</code></pre>
+
+<p>Well, before starting anything, I like to download the files present at
+the pwnable server to a local directory, so that I can test out my
+solutions locally. I did that with the following command:</p>
+
+<pre><code>scp -r -P2222 fd@pwnable.kr:~/ ./
+</code></pre>
+
+<p><em>(You can checkout the <code>scp</code> command by running <code>man scp</code> on your terminal, always remember: curiosity is your friend here.)</em></p>
+
+<p>Opening the directory where the files were copied, I saw that the source
+file for the binary was given to us. I started out by reading the source
+file.</p>
+
+<p>The first thing that I noticed in the source was the following <code>if</code> block:</p>
+
+<pre><code>if(argc&lt;2){
+	printf(&quot;pass argv[1] a number\n&quot;);
+	return 0;
+}
+</code></pre>
+
+<p>The program takes at least one argument as an input. (Hence the check
+<code>argc &lt; 2</code>.) From the error message, we can assume that the first argument
+that was passed should be a number. Upon reading the code further, I saw that the
+program uses the first argument passed to it (<code>argv[1]</code>) in the
+following line:</p>
+
+<pre><code>int fd = atoi( argv[1] ) - 0x1234;
+</code></pre>
+
+<p>The code subtracts the hex value <code>0x1234</code> from the first input passed,
+and store it in the <code>fd</code> variable. It then uses <code>fd</code> as a file descriptor
+and reads 32 bytes from it and stores the value in the buffer buf:</p>
+
+<pre><code>len = read(fd, buf, 32);
+if(!strcmp(&quot;LETMEWIN\n&quot;, buf)) {
+  printf(&quot;good jon :)\n&quot;);
+  system(&quot;/bin/cat flag&quot;);
+  exit(0);
+}
+</code></pre>
+
+<p>It outputs the flag if the read string is &ldquo;LETMEWIN&rdquo;. Upon getting here,
+I realised that what I can do is, give a value to this program such that
+the value of <code>fd</code> becomes 0, which is the file descriptor for <code>STDIN</code>. Then
+the program would try to read from the standard input, and I could type
+out the string &ldquo;LETMEWIN&rdquo;. Converting <code>0x1234</code> to the decimal number
+system, we get <code>4660</code>.</p>
+
+<p>Typing the following into the terminal displays the success message:</p>
+
+<pre><code>./fd 4660
+LETMEWIN
+good job :)
+/bin/cat: flag: No such file or directory
+</code></pre>
+
+<p>We get a cat error as we don&rsquo;t have the flag file on our system, we aren&rsquo;t
+allowed to copy the flag file to our systems, as we might change the
+permissions of that file and simply <code>cat</code> the flag.</p>
+
+<p>Running this code on the ssh session gives us the flag!</p>
+
+<h2 id="a-question">A question<a href="#a-question" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>What happens if we try to cat the <code>flag</code> file directly in the <code>ssh</code>
+session? Let&rsquo;s try it out:</p>
+
+<pre><code> ____  __    __  ____    ____  ____   _        ___      __  _  ____  
+|    \|  |__|  ||    \  /    ||    \ | |      /  _]    |  |/ ]|    \ 
+|  o  )  |  |  ||  _  ||  o  ||  o  )| |     /  [_     |  ' / |  D  )
+|   _/|  |  |  ||  |  ||     ||     || |___ |    _]    |    \ |    / 
+|  |  |  `  '  ||  |  ||  _  ||  O  ||     ||   [_  __ |     \|    \ 
+|  |   \      / |  |  ||  |  ||     ||     ||     ||  ||  .  ||  .  \
+|__|    \_/\_/  |__|__||__|__||_____||_____||_____||__||__|\_||__|\_|
+                                                                     
+- Site admin : daehee87@gatech.edu
+- IRC : irc.netgarage.org:6667 / #pwnable.kr
+- Simply type &quot;irssi&quot; command to join IRC now
+- files under /tmp can be erased anytime. make your directory under /tmp
+- to use peda, issue `source /usr/share/peda/peda.py` in gdb terminal
+You have mail.
+Last login: Tue Apr 28 08:58:55 2020 from 213.230.77.85
+fd@pwnable:~$ cat flag
+cat: flag: Permission denied
+</code></pre>
+
+<p>We get a permission denied error, obviously we shouldn&rsquo;t be allowed to cat
+the flag, and using <code>ls -l</code> to check the permissions on this file, we
+find that it is in fact the case:</p>
+
+<pre><code>fd@pwnable:~$ ls -l
+total 16
+-r-sr-x--- 1 fd_pwn fd   7322 Jun 11  2014 fd
+-rw-r--r-- 1 root   root  418 Jun 11  2014 fd.c
+-r--r----- 1 fd_pwn root   50 Jun 11  2014 flag
+</code></pre>
+
+<p>We see that the flag file is only readable by the owner <code>fd_pwn</code> or by
+someone belonging to the <code>root</code> group.</p>
+
+<p>Well if that&rsquo;s the case then how does the <code>fd</code> binary <code>cat</code>s the file? The
+answer to that is the <code>s</code> flag. It is called the <code>setuid</code> flag. You can
+read more about it <a href="https://en.wikipedia.org/wiki/Setuid">here</a>.</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bk1603.github.io/tags/writeups">writeups</a></span><span class="tag"><a href="https://bk1603.github.io/tags/pwnable.kr">pwnable.kr</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>921 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-04-28 17:31 &#43;0530</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://bk1603.github.io/posts/writeups/cryptopals_1_1/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>Cryptopals Set 1 Problem 1</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://bk1603.github.io">Shreyansh Chouhan</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://bk1603.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://bk1603.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

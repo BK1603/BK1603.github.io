@@ -3,7 +3,64 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://bk1603.github.io/writeups/fd/</loc>
+    <loc>https://bk1603.github.io/posts/blog/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/cryptography/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/blog/cryptopals/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/cryptopals/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/</loc>
+    <lastmod>2020-05-01T17:09:20+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/writeups/</loc>
+    <lastmod>2020-05-01T16:58:26+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/writeups/cryptopals_1_1/</loc>
+    <lastmod>2020-05-01T16:58:26+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/writeups/</loc>
+    <lastmod>2020-05-01T16:58:26+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/blog/first-blog/</loc>
+    <lastmod>2020-04-28T20:59:43+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/tags/random/</loc>
+    <lastmod>2020-04-28T20:59:43+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/writeups/fd/</loc>
     <lastmod>2020-04-28T17:31:41+05:30</lastmod>
   </url>
   
@@ -13,28 +70,12 @@
   </url>
   
   <url>
-    <loc>https://bk1603.github.io/</loc>
-    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bk1603.github.io/tags/</loc>
-    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bk1603.github.io/writeups/</loc>
-    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bk1603.github.io/tags/writeups/</loc>
-    <lastmod>2020-04-28T17:31:41+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bk1603.github.io/about/</loc>
     <lastmod>2020-04-28T16:39:25+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bk1603.github.io/posts/</loc>
   </url>
   
 </urlset>

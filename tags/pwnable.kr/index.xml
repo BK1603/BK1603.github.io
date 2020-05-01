@@ -14,10 +14,10 @@
     
     <item>
       <title>fd: The first problem at pwnable.kr</title>
-      <link>https://bk1603.github.io/writeups/fd/</link>
+      <link>https://bk1603.github.io/posts/writeups/fd/</link>
       <pubDate>Tue, 28 Apr 2020 17:31:41 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/writeups/fd/</guid>
+      <guid>https://bk1603.github.io/posts/writeups/fd/</guid>
       <description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
     </item>
     
