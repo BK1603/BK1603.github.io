@@ -18,51 +18,37 @@
 			<description>Umm right before we start I&amp;rsquo;d like to say that I might make some very stupid mistakes in the process of solving these problems, I hope that&amp;rsquo;s not going to be a problem, I&amp;rsquo;ve already written about it here.
 Now then, off we go!
 The question The problem heading states: Convert hex to base64. I am expecting a bit (pun not inteded) of binary arithematic for this one. According to the problem statement, we will have to convert a hexadecimal string given to us into its base64 equivalent.</description>
-			<content type="html"><![CDATA[
-
-<p>Umm right before we start I&rsquo;d like to say that I might make some very
+			<content type="html"><![CDATA[<p>Umm right before we start I&rsquo;d like to say that I might make some very
 stupid mistakes in the process of solving these problems, I hope that&rsquo;s not
 going to be a problem, I&rsquo;ve already written about it <a href="https://bk1603.github.io/blog/cryptopals">here</a>.</p>
-
 <p>Now then, off we go!</p>
-
 <h2 id="the-question">The question</h2>
-
 <p>The problem heading states: <strong>Convert hex to base64</strong>. I am expecting
 a bit (pun not inteded) of binary arithematic for this one. According to
 the problem statement, we will have to convert a hexadecimal string
 given to us into its base64 equivalent. I think that&rsquo;s it for the question.
 Let&rsquo;s start solving this!</p>
-
 <h2 id="solution">Solution</h2>
-
 <h3 id="convert-the-string-to-hex">Convert the string to hex</h3>
-
 <p>Well the first problem that we have is that the input given to us is in
 the form of a string. We need to convert it to the equivalent hex values
 before we can work on it. I am thinking of storing these values in an
 integer array. But before deciding about how we store it, I think we should
 first look up about how does the base64 algorithm actually works.</p>
-
 <h3 id="the-algorithm">The algorithm</h3>
-
 <p>Here is what the algorithm states (as stated <a href="http://www.herongyang.com/Encoding/Base64-Encoding-Algorithm.html">here</a>):</p>
-
-<ol>
+<ol start="3">
 <li>Divide the input byte stream into blocks of 3 bytes.</li>
 <li>Divide 24 bits of each 3-byte block into 4 groups of 6 bits. <em>(1 byte = 8 bits, so 3 bytes = 24 bits, so far they are right about the maths prerequisite.)</em></li>
 <li>Map each group of 6 bits to 1 printable character, based on the 6-bit
 value using the Base64 character set map. <em>(Will mention in the example.)</em></li>
 <li>If the last 3-byte block is not completely full, padd the incomplete
 part with 0 bytes. So you would be padding it with either 2 bytes of zeroes (\x00\x00) or maybe a 1 byte (\x00) depending upon how much of the last block is full.</li>
-<li>Ignore carriage return (&rsquo;\r&rsquo;) and new line (&rsquo;\n&rsquo;) characters for the
-purpose of decoding. Simply append it at the end of the output string.
-<br /></li>
+<li>Ignore carriage return ('\r&rsquo;) and new line ('\n&rsquo;) characters for the
+purpose of decoding. Simply append it at the end of the output string.</li>
 </ol>
-
 <p>Okay now let&rsquo;s see what the &ldquo;Base64 character set map&rdquo; looks like and then
 follow it up with an example of how the algorithm works in principle:</p>
-
 <pre><code>Value Encoding  Value Encoding  Value Encoding  Value Encoding
     0 A            17 R            34 i            51 z
     1 B            18 S            35 j            52 0
@@ -81,17 +67,13 @@ follow it up with an example of how the algorithm works in principle:</p>
    14 O            31 f            48 w         (pad) =
    15 P            32 g            49 x
    16 Q            33 h            50 y
-</code></pre>
-
-<p>That&rsquo;s the character map, with the encodign for each value in the decimal
+</code></pre><p>That&rsquo;s the character map, with the encodign for each value in the decimal
 number system. You can think of these 64 characters as digits of another
 number system, a &ldquo;base 64&rdquo; number system. I guess that&rsquo;s how the name
 came into existence? Don&rsquo;t take my word for it. Also instead of the usual
 way of converting between number systems, we are going to play with the
 arrangement of bits for this one. So that&rsquo;s probably wrong anyways.</p>
-
 <p>Enough rambling, here&rsquo;s an example:</p>
-
 <pre><code>  Hex:  A4
   Binary: 10100100 
   
@@ -108,13 +90,9 @@ arrangement of bits for this one. So that&rsquo;s probably wrong anyways.</p>
   2 padded 0 bytes. And we get the following base64 output:
   
   Base64: pA==
-</code></pre>
-
-<p>And there we have it, we now know exactly how base64 works, and you are free to do whatever you feel like with this knowledge. Let us continue with
+</code></pre><p>And there we have it, we now know exactly how base64 works, and you are free to do whatever you feel like with this knowledge. Let us continue with
 the solution for now though.</p>
-
 <h3 id="representing-the-hex">Representing the hex</h3>
-
 <p>Well, after reading the algorithm, I am thinking of storing 24 bits in an
 integer and maintaining an array of such integers, so that we can easily break it into groups of 6 without worrying
 about any remainders. (Since 6 neatly divides 24, don&rsquo;t know about you
@@ -122,15 +100,12 @@ guys but the people who made the site knew their stuff. The thing that
 they said about the maths preqrequisite still holds true. Oh you&rsquo;re asking
 about the base conversion? Well, I think that&rsquo;s taught in grade 9, if it
 isn&rsquo;t then go ahead and contact them. They can&rsquo;t lie like that.)</p>
-
 <p>So storing 24 bits would mean that we can store 6 hexadecimal digits in
 a single integer. (Each hex digit being 4 bits, and, you guessed it, 4x6=24
 ). I will be using C programming language for this, and I
 think the left shift (<code>&gt;&gt;</code>) and the right shift(<code>&lt;&lt;</code>) operators are gonna
 come in handy for this.</p>
-
 <p>So what we can do is something like the following:</p>
-
 <pre><code>  unsigned int *hex = (int *)malloc(sizeof(int) * len);
   memset(hex, 0, sizeof(hex));
   int i, j;
@@ -148,33 +123,22 @@ come in handy for this.</p>
   }
   int total_bytes = strlen(input)/2; // each hex character is 4 bits = 1/2 bytes.
   int pad = 3 - (total_bytes%3);  // the extra bytes that we insert when we don't have 3 full bytes at the end. 
-</code></pre>
-
-<p>Also here is the definition for <code>ctox</code>, it returns the hexadecimal value
+</code></pre><p>Also here is the definition for <code>ctox</code>, it returns the hexadecimal value
 equivalent of the characters.</p>
-
 <pre><code>int ctox(char ch) {
   if(ch &gt;= '0' &amp;&amp; ch &lt;= '9')
     return (int)(ch - '0');
   if(ch &gt;= 'a' &amp;&amp; ch &lt;= 'f')
     return (int)(ch - 87);      // as 'a'=97, and in hex a means 10
-</code></pre>
-
-<p>That sorts the representation, and the problem itself. Yep that&rsquo;s it. We&rsquo;re done.</p>
-
+</code></pre><p>That sorts the representation, and the problem itself. Yep that&rsquo;s it. We&rsquo;re done.</p>
 <h3 id="final-steps">Final steps</h3>
-
 <p>Now that we have the binary broken up in gropus of 6 bits, we simply
 need to print these bits according the Base64 character map. Here is an
 idea for that:</p>
-
 <pre><code>char base64[] = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;;
-</code></pre>
-
-<p>Now we can simply and 6 bits from the integer array, and use whatever
+</code></pre><p>Now we can simply and 6 bits from the integer array, and use whatever
 we get as an index to print the value from the array above. It would
 look something like this:</p>
-
 <pre><code>  int written = 0;                    // keep track of bytes written
   for(i = 0, j = 0; j &lt; len; j++) {
     int mask = 0xfc0000               // 1111 1100 0000 0000 0000 0000
@@ -192,10 +156,7 @@ look something like this:</p>
     }
   }
   printf(&quot;\n&quot;);
-</code></pre>
-
-<h2 id="a-final-word">A final word</h2>
-
+</code></pre><h2 id="a-final-word">A final word</h2>
 <p>As must be evident by the code, I am not writing very clean code right now.
 Right now, I am focusing entirely on learning the concepts for basic
 cryptography, maybe the code quality gets better as we progress. I will
@@ -212,10 +173,7 @@ it are welcome. You can comment here once I enable comments, till then make an i
 			
 			<guid>https://bk1603.github.io/posts/writeups/fd/</guid>
 			<description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
-			<content type="html"><![CDATA[
-
-<h2 id="a-word-before-we-start">A word before we start</h2>
-
+			<content type="html"><![CDATA[<h2 id="a-word-before-we-start">A word before we start</h2>
 <p>Before starting the discussion of the problem, for anyone following these
 blog posts, I&rsquo;d like to mention that everything required by these
 challenges can be read as and when necessary, but having a very basic
@@ -223,100 +181,70 @@ knowledge of the linux command line, file permission bits on linux and
 tools like <code>ssh</code>, <code>scp</code> and <code>nc</code> would be very helpful. Also try reading
 the <code>man</code> pages of any command line tool the use of which you couldn&rsquo;t
 understand.</p>
-
 <p>Also, all the writeups that I do for these problems would always contain a
 section named &ldquo;Hint&rdquo;, it would contain a hint which according to me should
 help in solving the problem. If you want to solve a problem but are stuck
 somewhere, try looking at these hints and see if you get somewhere with
 the problem.</p>
-
 <h2 id="hint">Hint</h2>
-
 <p>The program reads from a file descriptor, what file descriptor can you
 modify?</p>
-
 <h2 id="how-i-solved-it">How I solved it</h2>
-
 <p>The title of the first problem at <a href="https://pwnable.kr">pwnable.kr</a> is fd.
 If you have even a little experience with linux or have manipulated files in a language like C, you&rsquo;d think that the problem somehow involves file descriptors. And you wouldn&rsquo;t be wrong. Clicking on the problem you&rsquo;d find
 the following hint:</p>
-
 <pre><code>Mommy! what is a file descriptor in Linux?
 
 * try to play the wargame your self but if you are ABSOLUTE beginner, follow this tutorial link:
 https://youtu.be/971eZhMHQQw
 
 ssh fd@pwnable.kr -p2222 (pw:guest)
-</code></pre>
-
-<p>Well, before starting anything, I like to download the files present at
+</code></pre><p>Well, before starting anything, I like to download the files present at
 the pwnable server to a local directory, so that I can test out my
 solutions locally. I did that with the following command:</p>
-
 <pre><code>scp -r -P2222 fd@pwnable.kr:~/ ./
-</code></pre>
-
-<p><em>(You can checkout the <code>scp</code> command by running <code>man scp</code> on your terminal, always remember: curiosity is your friend here.)</em></p>
-
+</code></pre><p><em>(You can checkout the <code>scp</code> command by running <code>man scp</code> on your terminal, always remember: curiosity is your friend here.)</em></p>
 <p>Opening the directory where the files were copied, I saw that the source
 file for the binary was given to us. I started out by reading the source
 file.</p>
-
 <p>The first thing that I noticed in the source was the following <code>if</code> block:</p>
-
 <pre><code>if(argc&lt;2){
 	printf(&quot;pass argv[1] a number\n&quot;);
 	return 0;
 }
-</code></pre>
-
-<p>The program takes at least one argument as an input. (Hence the check
+</code></pre><p>The program takes at least one argument as an input. (Hence the check
 <code>argc &lt; 2</code>.) From the error message, we can assume that the first argument
 that was passed should be a number. Upon reading the code further, I saw that the
 program uses the first argument passed to it (<code>argv[1]</code>) in the
 following line:</p>
-
 <pre><code>int fd = atoi( argv[1] ) - 0x1234;
-</code></pre>
-
-<p>The code subtracts the hex value <code>0x1234</code> from the first input passed,
+</code></pre><p>The code subtracts the hex value <code>0x1234</code> from the first input passed,
 and store it in the <code>fd</code> variable. It then uses <code>fd</code> as a file descriptor
 and reads 32 bytes from it and stores the value in the buffer buf:</p>
-
 <pre><code>len = read(fd, buf, 32);
 if(!strcmp(&quot;LETMEWIN\n&quot;, buf)) {
   printf(&quot;good jon :)\n&quot;);
   system(&quot;/bin/cat flag&quot;);
   exit(0);
 }
-</code></pre>
-
-<p>It outputs the flag if the read string is &ldquo;LETMEWIN&rdquo;. Upon getting here,
+</code></pre><p>It outputs the flag if the read string is &ldquo;LETMEWIN&rdquo;. Upon getting here,
 I realised that what I can do is, give a value to this program such that
 the value of <code>fd</code> becomes 0, which is the file descriptor for <code>STDIN</code>. Then
 the program would try to read from the standard input, and I could type
 out the string &ldquo;LETMEWIN&rdquo;. Converting <code>0x1234</code> to the decimal number
 system, we get <code>4660</code>.</p>
-
 <p>Typing the following into the terminal displays the success message:</p>
-
 <pre><code>./fd 4660
 LETMEWIN
 good job :)
 /bin/cat: flag: No such file or directory
-</code></pre>
-
-<p>We get a cat error as we don&rsquo;t have the flag file on our system, we aren&rsquo;t
+</code></pre><p>We get a cat error as we don&rsquo;t have the flag file on our system, we aren&rsquo;t
 allowed to copy the flag file to our systems, as we might change the
 permissions of that file and simply <code>cat</code> the flag.</p>
-
 <p>Running this code on the ssh session gives us the flag!</p>
-
 <h2 id="a-question">A question</h2>
-
 <p>What happens if we try to cat the <code>flag</code> file directly in the <code>ssh</code>
 session? Let&rsquo;s try it out:</p>
-
 <pre><code> ____  __    __  ____    ____  ____   _        ___      __  _  ____  
 |    \|  |__|  ||    \  /    ||    \ | |      /  _]    |  |/ ]|    \ 
 |  o  )  |  |  ||  _  ||  o  ||  o  )| |     /  [_     |  ' / |  D  )
@@ -334,22 +262,16 @@ You have mail.
 Last login: Tue Apr 28 08:58:55 2020 from 213.230.77.85
 fd@pwnable:~$ cat flag
 cat: flag: Permission denied
-</code></pre>
-
-<p>We get a permission denied error, obviously we shouldn&rsquo;t be allowed to cat
+</code></pre><p>We get a permission denied error, obviously we shouldn&rsquo;t be allowed to cat
 the flag, and using <code>ls -l</code> to check the permissions on this file, we
 find that it is in fact the case:</p>
-
 <pre><code>fd@pwnable:~$ ls -l
 total 16
 -r-sr-x--- 1 fd_pwn fd   7322 Jun 11  2014 fd
 -rw-r--r-- 1 root   root  418 Jun 11  2014 fd.c
 -r--r----- 1 fd_pwn root   50 Jun 11  2014 flag
-</code></pre>
-
-<p>We see that the flag file is only readable by the owner <code>fd_pwn</code> or by
+</code></pre><p>We see that the flag file is only readable by the owner <code>fd_pwn</code> or by
 someone belonging to the <code>root</code> group.</p>
-
 <p>Well if that&rsquo;s the case then how does the <code>fd</code> binary <code>cat</code>s the file? The
 answer to that is the <code>s</code> flag. It is called the <code>setuid</code> flag. You can
 read more about it <a href="https://en.wikipedia.org/wiki/Setuid">here</a>.</p>
