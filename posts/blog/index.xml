@@ -15,14 +15,14 @@
 			<pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
 			
 			<guid>https://bk1603.github.io/posts/blog/how_to_study_material/</guid>
-			<description>I recently received a call from my room mate. He was asking about how he could access the &amp;ldquo;Study Material&amp;rdquo; shared folder from our college. He mentioned that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&amp;rsquo;t care less about the classes starting right now :/)
-Well upon opening the file I did find some instructions, BUT they are only for windows, I don&amp;rsquo;t know what to say.</description>
-			<content type="html"><![CDATA[<p>I recently received a call from my room mate. He was asking about how he could access the &ldquo;Study Material&rdquo;
-shared folder from our college. He mentioned that the college had sent us a file with directions for setting
+			<description>I recently received a call from my room mate. He asked me about how he could access the &amp;ldquo;Study Material&amp;rdquo; shared folder from our college, mentioneing that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&amp;rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows.</description>
+			<content type="html"><![CDATA[<p>I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo;
+shared folder from our college, mentioneing that the college had sent us a file with directions for setting
 it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now
 :/)</p>
-<p>Well upon opening the file I did find some instructions, BUT they are only for windows, I don&rsquo;t know
-what to say. I really don&rsquo;t. For all the good peeps running linux, here&rsquo;s my guide on how to set it up.</p>
+<p>Well, upon opening the file I did find some instructions, BUT they are only for windows. (I don&rsquo;t know
+what to say. I really don&rsquo;t.) For all the good peeps running linux, here&rsquo;s my guide on how to set it up.</p>
 <p>PS: Of course I could have just called my room mate up and told him the entire thing. Heck I could
 even have logged in on his laptop via ssh and done it all by myself, but this blog desparately needs posts
 right now and I am running behind on my write ups, since I got bit busy for the past three months or so. So
@@ -89,7 +89,7 @@ are relevant here.</p>
 it is sent to the openvpn client, which compresses, encrypts and looks up the route table and sends
 the file to where it&rsquo;s supposed to be sent via a secure tunnel. Detailed explanation <a href="https://openvpn.net/vpn-server-resources/site-to-site-routing-explained-in-detail/">here</a>.</p>
 <h3 id="the-comp-lzo-voodoo">The &ldquo;comp-lzo&rdquo; voodoo</h3>
-<p>The OpenVPN client needs to know wether the server will be expecting compressed packets. If the server
+<p>The OpenVPN client needs to know whether the server will be expecting compressed packets. If the server
 is infact accepting compressed packets, the client would then require the compression algorithm that
 the server is expecting. In our case it is the <code>lzo</code> algorithm. In the config file we have <code>comp-lzo</code> set
 to <code>no</code>.</p>
@@ -98,10 +98,10 @@ to <code>no</code>.</p>
 </code></pre><p>Which I am guessing means that the decompression resulted in an unknown header byte that caused this error,
 or simply we are using the wrong compression algorithm.</p>
 <p>Second, <code>comp-lzo</code> is a deprecated flag. It will soon be removed from OpenVPN. It has been replaced by
-the <code>compress</code> flag. You simply write the name of the algorithm after the <code>compress</code> flag for it to work
-like <code>comp-lzo</code>. In our case it would be <code>compress lzo</code>.</p>
+the <code>compress</code> flag. You simply write the name of the algorithm after the <code>compress</code> flag for it to work.
+In our case it would be <code>compress lzo</code>.</p>
 <h3 id="the-rest-of-it">The rest of it</h3>
-<p>The rest of it us just us basically whatever the prompt asks us to. One question that remains unanswered
+<p>The rest of it is just us basically whatever the prompt asks us to. One question that remains unanswered
 is how was the port number found. Well it&rsquo;s there among the last lines of the <code>ovpn</code> file that we downloaded.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Well there you go. That should be it. If there are any problems, you can try reaching out via email or gitter. My gitter userhandle is BK1603. I&rsquo;ll try and help you out as much as possible. Also I hope

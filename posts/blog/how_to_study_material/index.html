@@ -8,26 +8,26 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="How to connect to JIIT Study Material">
-<meta itemprop="description" content="I recently received a call from my room mate. He was asking about how he could access the &ldquo;Study Material&rdquo; shared folder from our college. He mentioned that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
-Well upon opening the file I did find some instructions, BUT they are only for windows, I don&rsquo;t know what to say.">
+<meta itemprop="description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioneing that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows.">
 <meta itemprop="datePublished" content="2020-08-14T13:31:20+05:30" />
 <meta itemprop="dateModified" content="2020-08-14T13:31:20+05:30" />
-<meta itemprop="wordCount" content="1143">
+<meta itemprop="wordCount" content="1140">
 
 
 
 <meta itemprop="keywords" content="how_to,JIIT,openvpn,samba," />
 <meta property="og:title" content="How to connect to JIIT Study Material" />
-<meta property="og:description" content="I recently received a call from my room mate. He was asking about how he could access the &ldquo;Study Material&rdquo; shared folder from our college. He mentioned that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
-Well upon opening the file I did find some instructions, BUT they are only for windows, I don&rsquo;t know what to say." />
+<meta property="og:description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioneing that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bk1603.github.io/posts/blog/how_to_study_material/" />
 <meta property="article:published_time" content="2020-08-14T13:31:20+05:30" />
 <meta property="article:modified_time" content="2020-08-14T13:31:20+05:30" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to connect to JIIT Study Material"/>
-<meta name="twitter:description" content="I recently received a call from my room mate. He was asking about how he could access the &ldquo;Study Material&rdquo; shared folder from our college. He mentioned that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
-Well upon opening the file I did find some instructions, BUT they are only for windows, I don&rsquo;t know what to say."/>
+<meta name="twitter:description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioneing that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -80,12 +80,12 @@ Well upon opening the file I did find some instructions, BUT they are only for w
 				<h1>How to connect to JIIT Study Material</h1>
 			</header>
 			<div class="content">
-				<p>I recently received a call from my room mate. He was asking about how he could access the &ldquo;Study Material&rdquo;
-shared folder from our college. He mentioned that the college had sent us a file with directions for setting
+				<p>I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo;
+shared folder from our college, mentioneing that the college had sent us a file with directions for setting
 it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now
 :/)</p>
-<p>Well upon opening the file I did find some instructions, BUT they are only for windows, I don&rsquo;t know
-what to say. I really don&rsquo;t. For all the good peeps running linux, here&rsquo;s my guide on how to set it up.</p>
+<p>Well, upon opening the file I did find some instructions, BUT they are only for windows. (I don&rsquo;t know
+what to say. I really don&rsquo;t.) For all the good peeps running linux, here&rsquo;s my guide on how to set it up.</p>
 <p>PS: Of course I could have just called my room mate up and told him the entire thing. Heck I could
 even have logged in on his laptop via ssh and done it all by myself, but this blog desparately needs posts
 right now and I am running behind on my write ups, since I got bit busy for the past three months or so. So
@@ -152,7 +152,7 @@ are relevant here.</p>
 it is sent to the openvpn client, which compresses, encrypts and looks up the route table and sends
 the file to where it&rsquo;s supposed to be sent via a secure tunnel. Detailed explanation <a href="https://openvpn.net/vpn-server-resources/site-to-site-routing-explained-in-detail/">here</a>.</p>
 <h3 id="the-comp-lzo-voodoo">The &ldquo;comp-lzo&rdquo; voodoo<a href="#the-comp-lzo-voodoo" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-<p>The OpenVPN client needs to know wether the server will be expecting compressed packets. If the server
+<p>The OpenVPN client needs to know whether the server will be expecting compressed packets. If the server
 is infact accepting compressed packets, the client would then require the compression algorithm that
 the server is expecting. In our case it is the <code>lzo</code> algorithm. In the config file we have <code>comp-lzo</code> set
 to <code>no</code>.</p>
@@ -161,10 +161,10 @@ to <code>no</code>.</p>
 </code></pre><p>Which I am guessing means that the decompression resulted in an unknown header byte that caused this error,
 or simply we are using the wrong compression algorithm.</p>
 <p>Second, <code>comp-lzo</code> is a deprecated flag. It will soon be removed from OpenVPN. It has been replaced by
-the <code>compress</code> flag. You simply write the name of the algorithm after the <code>compress</code> flag for it to work
-like <code>comp-lzo</code>. In our case it would be <code>compress lzo</code>.</p>
+the <code>compress</code> flag. You simply write the name of the algorithm after the <code>compress</code> flag for it to work.
+In our case it would be <code>compress lzo</code>.</p>
 <h3 id="the-rest-of-it">The rest of it<a href="#the-rest-of-it" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-<p>The rest of it us just us basically whatever the prompt asks us to. One question that remains unanswered
+<p>The rest of it is just us basically whatever the prompt asks us to. One question that remains unanswered
 is how was the port number found. Well it&rsquo;s there among the last lines of the <code>ovpn</code> file that we downloaded.</p>
 <h2 id="conclusion">Conclusion<a href="#conclusion" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>Well there you go. That should be it. If there are any problems, you can try reaching out via email or gitter. My gitter userhandle is BK1603. I&rsquo;ll try and help you out as much as possible. Also I hope
@@ -177,7 +177,7 @@ that all you are staying safe and doing well!</p>
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bk1603.github.io/tags/how_to">how_to</a></span><span class="tag"><a href="https://bk1603.github.io/tags/jiit">JIIT</a></span><span class="tag"><a href="https://bk1603.github.io/tags/openvpn">openvpn</a></span><span class="tag"><a href="https://bk1603.github.io/tags/samba">samba</a></span>
 				</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1143 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1140 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-08-14 13:31 &#43;0530</p>
 			</footer>
 		</article>
