@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 01 May 2020 17:09:20 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 13:31:20 +0530</lastBuildDate>
     
 	<atom:link href="https://bk1603.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>how_to</title>
+      <link>https://bk1603.github.io/tags/how_to/</link>
+      <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/tags/how_to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JIIT</title>
+      <link>https://bk1603.github.io/tags/jiit/</link>
+      <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/tags/jiit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openvpn</title>
+      <link>https://bk1603.github.io/tags/openvpn/</link>
+      <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/tags/openvpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>samba</title>
+      <link>https://bk1603.github.io/tags/samba/</link>
+      <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/tags/samba/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cryptography</title>
