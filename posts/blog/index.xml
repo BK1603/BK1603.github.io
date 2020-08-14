@@ -30,7 +30,7 @@ I thought to myself, &ldquo;Why not?&rdquo;</p>
 <h2 id="who-is-this-guide-for">Who is this guide for?</h2>
 <p>Anyone using linux who hasn&rsquo;t been able to accesss the &ldquo;Study Material&rdquo; shared folder on their sytsems
 because of the absence of instructions and the cryptic nature of the files downloaded. (The configuration
-file ends with a <code>.ovpn</code>, and when I first looked at such a file an year ago, it made absolutely no sense
+file ends with a <code>.ovpn</code>, and when I first looked at such a file a year ago, it made absolutely no sense
 to me whatsoever.) I&rsquo;ll try and explain why we are doing what we are doing too so if you&rsquo;re interested in
 that do read it to the end.</p>
 <p>Lastly I hope this works with Macbooks too. Honestly I am too poor to be able to afford one and test it
