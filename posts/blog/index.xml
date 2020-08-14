@@ -35,6 +35,8 @@ to me whatsoever.) I&rsquo;ll try and explain why we are doing what we are doing
 that do read it to the end.</p>
 <p>Lastly I hope this works with Macbooks too. Honestly I am too poor to be able to afford one and test it
 out. Do let me know if it doesn&rsquo;t work though, I&rsquo;ll try and help to the best of my abilities.</p>
+<p><strong>EDIT:</strong> After a 30 minute long discussion with <a href="https://github.com/thedevastateddreamer">Divya</a>, turns out the config file provided by our college
+won&rsquo;t work as is on mac. Bummer :(</p>
 <h2 id="tldr">TL;DR</h2>
 <ul>
 <li>Install openvpn on your distribution. For most of you it should be:</li>
@@ -44,7 +46,7 @@ out. Do let me know if it doesn&rsquo;t work though, I&rsquo;ll try and help to 
 <ul>
 <li>Go to <a href="https://14.139.238.98:8180/userportal/webpages/myaccount/login.jsp">the link mentioned in the pdf</a> and login using the Sophos
 password. (Yes that Sophos password. Took me 7 tries.)</li>
-<li>Download the configuration files for other OS. You should get a file with the folowing name format:</li>
+<li>Download the configuration files for other OS. You should get a file with the folowing name format (other OSs):</li>
 </ul>
 <pre><code>&lt;enrollment_number&gt;@pdc.jiit__ssl_vpn_config.ovpn
 </code></pre><ul>
