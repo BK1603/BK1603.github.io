@@ -61,13 +61,29 @@ password. (Yes that Sophos password. Took me 7 tries.)</li>
 </code></pre><p>(You&rsquo;ll have to leave this running for the entire time you need to access the server. Quit it via <code>&lt;Ctrl-c&gt;</code>
 when you&rsquo;re done, and run it again everytime you need to access the folder.)</p>
 <ul>
-<li>It will ask you for the root password. Enter that.</li>
-<li>It will then ask you for the Sophos username and password. Type that in.</li>
-<li>Open your file manager.</li>
-<li>Most have a connect to server/remote network in the left side tray at the very bottom.</li>
-<li>Enter this ip adress in the server field: <code>172.16.68.30</code>. (From the pdf given to us by our college.)</li>
-<li>Set the port to <code>8443</code>.</li>
-<li>Add the username and passwords in there respective feilds, and leave everything else as is.</li>
+<li>
+<p>It will ask you for the root password. Enter that.</p>
+</li>
+<li>
+<p>It will then ask you for the Sophos username and password. Type that in.</p>
+</li>
+<li>
+<p>Open your file manager.</p>
+</li>
+<li>
+<p>Most have a connect to server/remote network in the left side tray at the very bottom.</p>
+</li>
+<li>
+<p>Enter this ip adress in the server field: <code>172.16.68.30</code>. (From the pdf given to us by our college.)</p>
+<p><strong>EDIT</strong>: Ubuntu users, or anyone using the GNOME file manager might have to type in the ip address along
+with the protocol and the directory name like so: <code>smb://172.16.68.30/Study Material</code>. Thanks Priyansh.</p>
+</li>
+<li>
+<p>Set the port to <code>8443</code>.</p>
+</li>
+<li>
+<p>Add the username and passwords in there respective feilds, and leave everything else as is.</p>
+</li>
 </ul>
 <p>And voila! You should be up and running! If this is all that you came for then there you go. If you faced
 any problems in the above steps, try and follow along, I&rsquo;ll try and explain why we are doing what we
