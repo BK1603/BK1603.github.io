@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debugging on BK1603</title>
+    <link>https://bk1603.github.io/tags/debugging/</link>
+    <description>Recent content in debugging on BK1603</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Sun, 06 Jun 2021 13:43:09 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code analysis</title>
+      <link>https://bk1603.github.io/posts/dynamic_analysis/</link>
+      <pubDate>Sun, 06 Jun 2021 13:43:09 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/posts/dynamic_analysis/</guid>
+      <description>Let&amp;rsquo;s start with code debugging, we all know what code debugging is. We write some code, and then we check for errors (or bugs) in the code and try to fix them or remove them. We want to find and fix these bugs as early in the development process as posssible, because of a well known principle that states that fixing bugs later in the stages of development/release costs more than what it would in the earlier stages.</description>
+    </item>
+    
+  </channel>
+</rss>

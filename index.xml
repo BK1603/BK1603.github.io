@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Question Everything</title>
+    <title>BK1603</title>
     <link>https://bk1603.github.io/</link>
-    <description>Recent content on Question Everything</description>
+    <description>Recent content on BK1603</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 14 Aug 2020 13:31:20 +0530</lastBuildDate>
-    
-	<atom:link href="https://bk1603.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Sun, 06 Jun 2021 13:43:09 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code analysis</title>
+      <link>https://bk1603.github.io/posts/dynamic_analysis/</link>
+      <pubDate>Sun, 06 Jun 2021 13:43:09 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/posts/dynamic_analysis/</guid>
+      <description>Let&amp;rsquo;s start with code debugging, we all know what code debugging is. We write some code, and then we check for errors (or bugs) in the code and try to fix them or remove them. We want to find and fix these bugs as early in the development process as posssible, because of a well known principle that states that fixing bugs later in the stages of development/release costs more than what it would in the earlier stages.</description>
+    </item>
     
     <item>
       <title>How to connect to JIIT Study Material</title>
-      <link>https://bk1603.github.io/posts/blog/how_to_study_material/</link>
+      <link>https://bk1603.github.io/posts/how_to_study_material/</link>
       <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/blog/how_to_study_material/</guid>
+      <guid>https://bk1603.github.io/posts/how_to_study_material/</guid>
       <description>I recently received a call from my room mate. He asked me about how he could access the &amp;ldquo;Study Material&amp;rdquo; shared folder from our college, mentioning that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&amp;rsquo;t care less about the classes starting right now :/)
 Well, upon opening the file I did find some instructions, BUT they are only for windows.</description>
     </item>
     
     <item>
-      <title>Cryptopals</title>
-      <link>https://bk1603.github.io/posts/blog/cryptopals/</link>
-      <pubDate>Fri, 01 May 2020 17:09:20 +0530</pubDate>
-      
-      <guid>https://bk1603.github.io/posts/blog/cryptopals/</guid>
-      <description>What&amp;rsquo;s this? Well, since I have a bit of free time on my hands these days, I am thinking of learing a bit about cryptography. I am always amazed at the way we manipulate strings of bits and bytes in cryptography, to hide a message. That too in plain sight. It always has been a very fascinating thing for me, and me being me, I always wanted to know how it works.</description>
-    </item>
-    
-    <item>
-      <title>Cryptopals Set 1 Problem 1</title>
-      <link>https://bk1603.github.io/posts/writeups/cryptopals_1_1/</link>
-      <pubDate>Fri, 01 May 2020 16:58:26 +0530</pubDate>
-      
-      <guid>https://bk1603.github.io/posts/writeups/cryptopals_1_1/</guid>
-      <description>Umm right before we start I&amp;rsquo;d like to say that I might make some very stupid mistakes in the process of solving these problems, I hope that&amp;rsquo;s not going to be a problem, I&amp;rsquo;ve already written about it here.
-Now then, off we go!
-The question The problem heading states: Convert hex to base64. I am expecting a bit (pun not inteded) of binary arithematic for this one. According to the problem statement, we will have to convert a hexadecimal string given to us into its base64 equivalent.</description>
-    </item>
-    
-    <item>
       <title>First Blog</title>
-      <link>https://bk1603.github.io/posts/blog/first-blog/</link>
+      <link>https://bk1603.github.io/posts/first-blog/</link>
       <pubDate>Tue, 28 Apr 2020 20:59:43 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/blog/first-blog/</guid>
+      <guid>https://bk1603.github.io/posts/first-blog/</guid>
       <description>What is this blog for? I&amp;rsquo;ll use this blog for writing about my adventures in open source. The issues that I fixed and how I fixed them. I might also write about how various open source softwares work &amp;ldquo;under the hood&amp;rdquo;. You know the good stuff ;)
 I&amp;rsquo;ll try and write about any security vulnerabilities that I might find in open source softwares. Although this is a long shot, but well, if I do find something, I might as well write about how I found it.</description>
     </item>
     
     <item>
       <title>fd: The first problem at pwnable.kr</title>
-      <link>https://bk1603.github.io/posts/writeups/fd/</link>
+      <link>https://bk1603.github.io/posts/fd/</link>
       <pubDate>Tue, 28 Apr 2020 17:31:41 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/writeups/fd/</guid>
+      <guid>https://bk1603.github.io/posts/fd/</guid>
       <description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
     </item>
     

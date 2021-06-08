@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>openvpn on Question Everything</title>
+    <title>openvpn on BK1603</title>
     <link>https://bk1603.github.io/tags/openvpn/</link>
-    <description>Recent content in openvpn on Question Everything</description>
+    <description>Recent content in openvpn on BK1603</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 14 Aug 2020 13:31:20 +0530</lastBuildDate>
-    
-	<atom:link href="https://bk1603.github.io/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Fri, 14 Aug 2020 13:31:20 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to connect to JIIT Study Material</title>
-      <link>https://bk1603.github.io/posts/blog/how_to_study_material/</link>
+      <link>https://bk1603.github.io/posts/how_to_study_material/</link>
       <pubDate>Fri, 14 Aug 2020 13:31:20 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/blog/how_to_study_material/</guid>
+      <guid>https://bk1603.github.io/posts/how_to_study_material/</guid>
       <description>I recently received a call from my room mate. He asked me about how he could access the &amp;ldquo;Study Material&amp;rdquo; shared folder from our college, mentioning that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&amp;rsquo;t care less about the classes starting right now :/)
 Well, upon opening the file I did find some instructions, BUT they are only for windows.</description>
     </item>

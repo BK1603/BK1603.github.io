@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Code analysis - BK1603</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Code analysis">
+<meta itemprop="description" content="Let&rsquo;s start with code debugging, we all know what code debugging is. We write some code, and then we check for errors (or bugs) in the code and try to fix them or remove them. We want to find and fix these bugs as early in the development process as posssible, because of a well known principle that states that fixing bugs later in the stages of development/release costs more than what it would in the earlier stages.">
+<meta itemprop="datePublished" content="2021-06-06T13:43:09+05:30" />
+<meta itemprop="dateModified" content="2021-06-06T13:43:09+05:30" />
+<meta itemprop="wordCount" content="864">
+
+
+
+<meta itemprop="keywords" content="linux,debugging," />
+<meta property="og:title" content="Code analysis" />
+<meta property="og:description" content="Let&rsquo;s start with code debugging, we all know what code debugging is. We write some code, and then we check for errors (or bugs) in the code and try to fix them or remove them. We want to find and fix these bugs as early in the development process as posssible, because of a well known principle that states that fixing bugs later in the stages of development/release costs more than what it would in the earlier stages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bk1603.github.io/posts/dynamic_analysis/" />
+<meta property="article:published_time" content="2021-06-06T13:43:09+05:30" />
+<meta property="article:modified_time" content="2021-06-06T13:43:09+05:30" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Code analysis"/>
+<meta name="twitter:description" content="Let&rsquo;s start with code debugging, we all know what code debugging is. We write some code, and then we check for errors (or bugs) in the code and try to fix them or remove them. We want to find and fix these bugs as early in the development process as posssible, because of a well known principle that states that fixing bugs later in the stages of development/release costs more than what it would in the earlier stages."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://bk1603.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://bk1603.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://bk1603.github.io/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="https://bk1603.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://bk1603.github.io/">
+				<img src="/images/avatar.jpg" alt="BK1603" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://bk1603.github.io/">BK1603</a></h1>
+	<div class="site-description"><p>Kernel hacker, contributor at QEMU and Neovim</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/BK1603" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">06</span>
+							<span class="rest">Jun 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Code analysis</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>Let&rsquo;s start with code debugging, we all know what code debugging is. We write
+some code, and then we check for errors (or bugs) in the code and try to fix
+them or remove them. We want to find and fix these bugs as early in the
+development process as posssible, because of a well known principle that states
+that fixing bugs later in the stages of development/release costs more than what
+it would in the earlier stages. (For eg, IBM estimates the cost of fix
+during testing is rougly 2.5x more than fixing bugs during implementation.)
+And leaving bugs around in your code can lead to lots of troubles. Crashing
+applications, corrupting user data, lots of security issues, etc. are all
+outcomes of these bugs.</p>
+<p>So now that we&rsquo;ve established that debugging is important, and that it is more
+efficient to fix bugs as early as possible, it&rsquo;s important to know how can we
+accomplish this. As I said, debugging is the process of <em>finding</em> and fixing
+bugs. It all starts with identifying these bugs when we write our code, and
+trying to fix them before they hit the next stages of development. Although it
+sounds simple, finding bugs might not be an easy task, and this is were code
+analysis tools come in.</p>
+<h2 id="code-analysis-tools">Code analysis tools</h2>
+<p>Code analysis tools are tools that help you by finding bugs in your code. They
+report anything that they <em>think</em> could be a bug, and it&rsquo;s later the job of the
+programmer to fix them. Emphasis on the word think as these tools aren&rsquo;t 100%
+accurate. They could report a perfectly fine line of code as a bug (false
+positives), or could miss reporting an actual bug (false negatives).</p>
+<p>So now we have two ends of a spectrum for tools, on one end of the spectrum, we
+have a tool that doesn&rsquo;t miss any bugs, but ends up reporting a lot of false
+positives, (eg, a tool that reports every line of code as a potiential bug,) and
+on the other end of the spectrum, we have tools that won&rsquo;t report any false
+positives, but they will also miss every bug in the code (eg, a tool that does
+nothing, reports nothing regardless of whatever the input is).</p>
+<p>We generally have to choose for a tool that lies in between those two extremes.
+Some tools prefer false negatives over false positives, and some are the other
+way around.</p>
+<p>We can also classify these tools on the basis of when/how they perform these
+error checks. Some tools do this before the runtime, (static code analysis,) and
+some do it during runtime (dynamic code analysis). What follows is a breif
+introduction of what these tools are and what can/can&rsquo;t they do.</p>
+<h2 id="static-code-analysis">Static code analysis</h2>
+<p>Static code analysis tools try to find errors in the source code of a program.
+Hence, the errors that they report are true for all the executions of a give
+program, as opposed to dynamic code analysis tools (which we will discuss
+later.) They can be helpful for finding simple bugs like:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  char buf[10];
+  buf[20] = &#39;\0&#39;;
+</code></pre></div><p>The above code would result in memory corruption everytime it is executed, as we
+are trying to access an out of bounds memory address. A static code analysis
+tool can easily catch and report this bug during code compilation and raise an
+exception/error. But what do we do about something like:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  char buf[len];
+  buf[idx] = &#39;\0&#39;;
+</code></pre></div><p>We can&rsquo;t say for certain if this is an error. Static code analysis might help if
+these variables were set to or calculated from constants. But what if they were
+derived from user inputs? In that case, we&rsquo;d have to know the values of these
+variables to know if this is an out of bounds memory access. This is where
+dynamic code analysis tools help.</p>
+<h2 id="dynamic-code-analysis">Dynamic code analysis</h2>
+<p>Dynamic code analysis tools test the code during the runtime of a program, and
+report any errors that they find. They mostly use compiler instrumentation, but
+could also be supplimented by software memory tagging, or instead use hardware
+memory tagging. (More on this in an upcoming post.)</p>
+<p>Since they report errors during the runtime, they can only prove errors for a
+single execution of the program, as opposed to static code analysis tools. Also
+these tools prefer false negatives over false positives, and hence, they could
+miss an actual bug in the code if the current execution of the program doesn&rsquo;t
+trigger it. What this also implies is that to find as many bugs as possible, we
+should make test cases with different inputs for a program and try to run them
+with these tools.</p>
+<h2 id="dynamic-code-analysis-in-the-linux-kernel">Dynamic code analysis in the Linux Kernel</h2>
+<p>Linux kernel uses a lot of code dynamic code analysis tools. They can be enabled
+by compiling the kernel with various config options. Some of these tools are
+KASAN, KMSAN, KCSAN and LOCKDEP. You can find out about these tools by looking
+at the config file for your kernel, (usually in the /boot directory,) and then
+searching for the various config options that you find in there.</p>
+<p>I will further discuss about KASAN, or Kernel Address SANitizator, in an
+upcoming blogpost.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/linux">linux</a></li>
+							
+							<li><a href="/tags/debugging">debugging</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'bk1603-github-io';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>random on Question Everything</title>
+    <title>random on BK1603</title>
     <link>https://bk1603.github.io/tags/random/</link>
-    <description>Recent content in random on Question Everything</description>
+    <description>Recent content in random on BK1603</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 28 Apr 2020 20:59:43 +0530</lastBuildDate>
-    
-	<atom:link href="https://bk1603.github.io/tags/random/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Tue, 28 Apr 2020 20:59:43 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/tags/random/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First Blog</title>
-      <link>https://bk1603.github.io/posts/blog/first-blog/</link>
+      <link>https://bk1603.github.io/posts/first-blog/</link>
       <pubDate>Tue, 28 Apr 2020 20:59:43 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/blog/first-blog/</guid>
+      <guid>https://bk1603.github.io/posts/first-blog/</guid>
       <description>What is this blog for? I&amp;rsquo;ll use this blog for writing about my adventures in open source. The issues that I fixed and how I fixed them. I might also write about how various open source softwares work &amp;ldquo;under the hood&amp;rdquo;. You know the good stuff ;)
 I&amp;rsquo;ll try and write about any security vulnerabilities that I might find in open source softwares. Although this is a long shot, but well, if I do find something, I might as well write about how I found it.</description>
     </item>

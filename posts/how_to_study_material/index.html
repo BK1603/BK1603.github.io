@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How to connect to JIIT Study Material - BK1603</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="How to connect to JIIT Study Material">
+<meta itemprop="description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioning that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows.">
+<meta itemprop="datePublished" content="2020-08-14T13:31:20+05:30" />
+<meta itemprop="dateModified" content="2020-08-14T13:31:20+05:30" />
+<meta itemprop="wordCount" content="1201">
+
+
+
+<meta itemprop="keywords" content="how_to,JIIT,openvpn,samba," />
+<meta property="og:title" content="How to connect to JIIT Study Material" />
+<meta property="og:description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioning that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bk1603.github.io/posts/how_to_study_material/" />
+<meta property="article:published_time" content="2020-08-14T13:31:20+05:30" />
+<meta property="article:modified_time" content="2020-08-14T13:31:20+05:30" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to connect to JIIT Study Material"/>
+<meta name="twitter:description" content="I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo; shared folder from our college, mentioning that the college had sent us a file with directions for setting it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now :/)
+Well, upon opening the file I did find some instructions, BUT they are only for windows."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://bk1603.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://bk1603.github.io/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://bk1603.github.io/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="https://bk1603.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://bk1603.github.io/">
+				<img src="/images/avatar.jpg" alt="BK1603" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://bk1603.github.io/">BK1603</a></h1>
+	<div class="site-description"><p>Kernel hacker, contributor at QEMU and Neovim</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/BK1603" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">14</span>
+							<span class="rest">Aug 2020</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">How to connect to JIIT Study Material</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>I recently received a call from my room mate. He asked me about how he could access the &ldquo;Study Material&rdquo;
+shared folder from our college, mentioning that the college had sent us a file with directions for setting
+it up, (which I was blissfully unaware of, honestly I couldn&rsquo;t care less about the classes starting right now
+:/)</p>
+<p>Well, upon opening the file I did find some instructions, BUT they are only for windows. (I don&rsquo;t know
+what to say. I really don&rsquo;t.) For all the good peeps running linux, here&rsquo;s my guide on how to set it up.</p>
+<p>PS: Of course I could have just called my room mate up and told him the entire thing. Heck I could
+even have logged in on his laptop via ssh and done it all by myself, but this blog desparately needs posts
+right now and I am running behind on my write ups, since I got bit busy for the past three months or so. So
+I thought to myself, &ldquo;Why not?&rdquo;</p>
+<h2 id="who-is-this-guide-for">Who is this guide for?</h2>
+<p>Anyone using linux who hasn&rsquo;t been able to accesss the &ldquo;Study Material&rdquo; shared folder on their sytsems
+because of the absence of instructions and the cryptic nature of the files downloaded. (The configuration
+file ends with a <code>.ovpn</code>, and when I first looked at such a file a year ago, it made absolutely no sense
+to me whatsoever.) I&rsquo;ll try and explain why we are doing what we are doing too so if you&rsquo;re interested in
+that do read it to the end.</p>
+<p>Lastly I hope this works with Macbooks too. Honestly I am too poor to be able to afford one and test it
+out. Do let me know if it doesn&rsquo;t work though, I&rsquo;ll try and help to the best of my abilities.</p>
+<p><strong>EDIT:</strong> After a 30 minute long discussion with <a href="https://github.com/thedevastateddreamer">Divya</a>, turns out the config file provided by our college
+won&rsquo;t work as is on mac. Bummer :(</p>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Install openvpn on your distribution. For most of you it should be:</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt install openvpn
+</code></pre></div><p>(Others can refer to the documentation of their distributions on how to use their package managers.)</p>
+<ul>
+<li>Go to <a href="https://14.139.238.98:8180/userportal/webpages/myaccount/login.jsp">the link mentioned in the pdf</a> and login using the Sophos
+password. (Yes that Sophos password. Took me 7 tries.)</li>
+<li>Download the configuration files for other OS. You should get a file with the folowing name format (other OSs):</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;enrollment_number&gt;@pdc.jiit__ssl_vpn_config.ovpn
+</code></pre></div><ul>
+<li>Open the downloaded file with your favorite editor. For me it&rsquo;ll be like this on the terminal:</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">edit ~/Downloads/18103150@pdc.jiit__ssl_vpn_config
+</code></pre></div><ul>
+<li>Search for the line <code>comp-lzo no</code> and replace it with <code>compress lzo</code></li>
+<li>Run the following command:</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo openvpn --config ~/Downloads/&lt;enrollment_number&gt;@pdc.jiit__ssl_vpn_config.ovpn
+</code></pre></div><p>(You&rsquo;ll have to leave this running for the entire time you need to access the server. Quit it via <code>&lt;Ctrl-c&gt;</code>
+when you&rsquo;re done, and run it again everytime you need to access the folder.)</p>
+<ul>
+<li>
+<p>It will ask you for the root password. Enter that.</p>
+</li>
+<li>
+<p>It will then ask you for the Sophos username and password. Type that in.</p>
+</li>
+<li>
+<p>Open your file manager.</p>
+</li>
+<li>
+<p>Most have a connect to server/remote network in the left side tray at the very bottom.</p>
+</li>
+<li>
+<p>Enter this ip adress in the server field: <code>172.16.68.30</code>. (From the pdf given to us by our college.)</p>
+<p><strong>EDIT</strong>: Ubuntu users, or anyone using the GNOME file manager might have to type in the ip address along
+with the protocol and the directory name like so: <code>smb://172.16.68.30/Study Material</code>. Thanks Priyansh.</p>
+</li>
+<li>
+<p>Set the port to <code>8443</code>.</p>
+</li>
+<li>
+<p>Add the username and passwords in there respective feilds, and leave everything else as is.</p>
+</li>
+</ul>
+<p>And voila! You should be up and running! If this is all that you came for then there you go. If you faced
+any problems in the above steps, try and follow along, I&rsquo;ll try and explain why we are doing what we
+are doing. Maybe that helps? If that didn&rsquo;t try and reach out and I&rsquo;ll try my best to help you.</p>
+<h2 id="cool-but-why">Cool but, why?</h2>
+<p>Here&rsquo;s an explanation for the steps for anyone curious about it. (Or people who don&rsquo;t want to do crap
+to their systems without having a solid reason why. Eg: The minimalists, the security freaks and what not.)
+I&rsquo;ll try and keep this concise so that I only describe absolutely what&rsquo;s necessary for this to work. You
+can read the man pages of the tools used for more info.</p>
+<p><strong>!!!Disclaimer!!!</strong>: I am no expert on networks and I won&rsquo;t be explaining any network related stuff here.
+I&rsquo;ll explain only the things that are needed to understand the steps we took.</p>
+<h3 id="the-downloaded-file">The downloaded file</h3>
+<p>The file we downloaded is a config file for <code>openvpn</code>. What is OpenVPN? I&rsquo;ll leave that to you guys. A simple
+google search would help you with that. You can checkout the <code>man</code> page for <code>openvpn</code> too. What the config
+file does is tells the openvpn client, (running on our machine,) about where the request made to a specific
+address are supposed to go. In our case, it decides where does a request made on <code>172.16.68.30</code> actually
+goes. It does that by adding routes to the route table, and some other stuff that I am not gonna go into
+since I am no expert on networks as I just said, and also because I don&rsquo;t think that those details
+are relevant here.</p>
+<p>When we run <code>openvpn</code> with the config file, whenever a packet is to be sent to the IP adress <code>172.16.68.30</code>
+it is sent to the openvpn client, which compresses, encrypts and looks up the route table and sends
+the file to where it&rsquo;s supposed to be sent via a secure tunnel. Detailed explanation <a href="https://openvpn.net/vpn-server-resources/site-to-site-routing-explained-in-detail/">here</a>.</p>
+<h3 id="the-comp-lzo-voodoo">The &ldquo;comp-lzo&rdquo; voodoo</h3>
+<p>The OpenVPN client needs to know whether the server will be expecting compressed packets. If the server
+is infact accepting compressed packets, the client would then require the compression algorithm that
+the server is expecting. In our case it is the <code>lzo</code> algorithm. In the config file we have <code>comp-lzo</code> set
+to <code>no</code>.</p>
+<p>Now two things, first, we need the lzo compression. If we run it as is, we get the following error:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Bad compression stub decompression header byte: 102
+</code></pre></div><p>Which I am guessing means that the decompression resulted in an unknown header byte that caused this error,
+or simply we are using the wrong compression algorithm.</p>
+<p>Second, <code>comp-lzo</code> is a deprecated flag. It will soon be removed from OpenVPN. It has been replaced by
+the <code>compress</code> flag. You simply write the name of the algorithm after the <code>compress</code> flag for it to work.
+In our case it would be <code>compress lzo</code>.</p>
+<h3 id="the-rest-of-it">The rest of it</h3>
+<p>The rest of it is just us basically whatever the prompt asks us to. One question that remains unanswered
+is how was the port number found. Well it&rsquo;s there among the last lines of the <code>ovpn</code> file that we downloaded.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Well there you go. That should be it. If there are any problems, you can try reaching out via email or gitter. My gitter userhandle is BK1603. I&rsquo;ll try and help you out as much as possible. Also I hope
+that all of you are staying safe and doing well!</p>
+<p>(I&rsquo;ll try and add a comments section soon enough, I&rsquo;ve been partly busy and partly lazy about it.)</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/how_to">how_to</a></li>
+							
+							<li><a href="/tags/jiit">JIIT</a></li>
+							
+							<li><a href="/tags/openvpn">openvpn</a></li>
+							
+							<li><a href="/tags/samba">samba</a></li>
+							
+						</ul>
+					
+				
+			</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'bk1603-github-io';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

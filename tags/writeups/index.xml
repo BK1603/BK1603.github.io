@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>writeups on Question Everything</title>
+    <title>writeups on BK1603</title>
     <link>https://bk1603.github.io/tags/writeups/</link>
-    <description>Recent content in writeups on Question Everything</description>
+    <description>Recent content in writeups on BK1603</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 01 May 2020 16:58:26 +0530</lastBuildDate>
-    
-	<atom:link href="https://bk1603.github.io/tags/writeups/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Cryptopals Set 1 Problem 1</title>
-      <link>https://bk1603.github.io/posts/writeups/cryptopals_1_1/</link>
-      <pubDate>Fri, 01 May 2020 16:58:26 +0530</pubDate>
-      
-      <guid>https://bk1603.github.io/posts/writeups/cryptopals_1_1/</guid>
-      <description>Umm right before we start I&amp;rsquo;d like to say that I might make some very stupid mistakes in the process of solving these problems, I hope that&amp;rsquo;s not going to be a problem, I&amp;rsquo;ve already written about it here.
-Now then, off we go!
-The question The problem heading states: Convert hex to base64. I am expecting a bit (pun not inteded) of binary arithematic for this one. According to the problem statement, we will have to convert a hexadecimal string given to us into its base64 equivalent.</description>
-    </item>
-    
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Tue, 28 Apr 2020 17:31:41 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/tags/writeups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fd: The first problem at pwnable.kr</title>
-      <link>https://bk1603.github.io/posts/writeups/fd/</link>
+      <link>https://bk1603.github.io/posts/fd/</link>
       <pubDate>Tue, 28 Apr 2020 17:31:41 +0530</pubDate>
       
-      <guid>https://bk1603.github.io/posts/writeups/fd/</guid>
+      <guid>https://bk1603.github.io/posts/fd/</guid>
       <description>A word before we start Before starting the discussion of the problem, for anyone following these blog posts, I&amp;rsquo;d like to mention that everything required by these challenges can be read as and when necessary, but having a very basic knowledge of the linux command line, file permission bits on linux and tools like ssh, scp and nc would be very helpful. Also try reading the man pages of any command line tool the use of which you couldn&amp;rsquo;t understand.</description>
     </item>
     
