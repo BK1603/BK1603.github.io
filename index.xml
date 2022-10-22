@@ -83,8 +83,8 @@ I&amp;rsquo;ll try and write about any security vulnerabilities that I might fin
       <guid>https://bk1603.github.io/the_plan/</guid>
       <description>As they say, a goal without a plan is just a wish, so here it is, a simple plan:
 The Plan   Neovim:
- Get libuv_autoread with basics merged. Get the logging PR merged if it is still required. Ask around about asynchronous writes, get it closed if it isn&amp;rsquo;t required.    QEMU:
- Cleanup the patchset Get virtio-snd with basics merged into master. Add more features step by step.</description>
+ Rebase on top of master. Get libuv_autoread with basics merged. Get the logging PR merged if it is still required. Ask around about asynchronous writes, get it closed if it isn&amp;rsquo;t required.    QEMU:
+ Cleanup the patchset Get virtio-snd with basics merged into master.</description>
     </item>
     
   </channel>
