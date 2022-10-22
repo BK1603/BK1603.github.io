@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sun, 06 Jun 2021 13:43:09 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 01:29:57 +0530</lastBuildDate><atom:link href="https://bk1603.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Update</title>
+      <link>https://bk1603.github.io/posts/update/</link>
+      <pubDate>Sun, 23 Oct 2022 01:29:57 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/posts/update/</guid>
+      <description>It has been a while since I last posted here. I think it is a good time to give out some updates.
+What&amp;rsquo;s new?  I am no more a college student. I finished my college a couple of months ago, and now I have a job as a software engineer. It was hard continuing open source development for almost the entirety of this year so far. I got an internship and as per our college policy I had to give it my best to get hired as a full time employee in the said company.</description>
+    </item>
+    
+    <item>
+      <title>Linux Kernel Bug Fixing Mentorship</title>
+      <link>https://bk1603.github.io/posts/linux-kernel-bug-fixing/</link>
+      <pubDate>Tue, 31 Aug 2021 23:37:35 +0530</pubDate>
+      
+      <guid>https://bk1603.github.io/posts/linux-kernel-bug-fixing/</guid>
+      <description>The linux kernel bug fixing program for me was an opportunity to make my dream of contributing to the linux kernel come true. I have always been curious about how the Operating System actually works and getting to work on the kernel was a very fulfiling experience.
+I got to work on bugs related to various kernel subsystems like filesystems, net, crypto and memory management. I learned a lot about a lot of things about all of these subsystems.</description>
+    </item>
+    
     <item>
       <title>Code analysis</title>
       <link>https://bk1603.github.io/posts/dynamic_analysis/</link>
