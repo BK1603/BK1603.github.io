@@ -75,5 +75,17 @@ I&amp;rsquo;ll try and write about any security vulnerabilities that I might fin
       <description>Hi there! I&amp;rsquo;m Shreyansh, glad to have you on board. I am a college student pursuing bachelors of technology in computer science. I&amp;rsquo;d like to describe myself as curious. I like to know how things work under the hood. I find that contributing to open source projects really helps me with that. I am a contributor to various open source organisations. You can checkout my github profile for more info! My username, as you might have guessed is BK1603.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://bk1603.github.io/the_plan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bk1603.github.io/the_plan/</guid>
+      <description>As they say, a goal without a plan is just a wish, so here it is, a simple plan:
+The Plan   Neovim:
+ Get libuv_autoread with basics merged. Get the logging PR merged if it is still required. Ask around about asynchronous writes, get it closed if it isn&amp;rsquo;t required.    QEMU:
+ Cleanup the patchset Get virtio-snd with basics merged into master. Add more features step by step.</description>
+    </item>
+    
   </channel>
 </rss>
